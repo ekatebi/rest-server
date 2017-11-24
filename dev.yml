@@ -1,0 +1,15 @@
+apps:
+  - script: app.js
+    cwd: ./
+    name: server
+    watch: ['./']
+    node_args: -r babel-register -r babel-polyfill
+    ignore_watch: ['**/*.test.js', '*.json', '*.yml', 'gulpfile.js', 'dist', 'node_modules']
+    exec_mode: 'fork'
+    instances: 1
+    env:
+      NODE_ENV: development
+    env_no-epg:
+      NODE_ENV: no-epg
+    env_production:
+      NODE_ENV: production

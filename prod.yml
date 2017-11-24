@@ -1,0 +1,18 @@
+apps:
+  - script: yarn
+    args: build-dist
+    name: build
+    autorestart: false
+    watch: ['./']
+    ignore_watch: ['**/*.test.js', '*.json', '*.yml', 'gulpfile.js', 'dist', 'node_modules']
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
+  - script: dist/app.js
+    name: server
+    watch: ['dist/app.js']
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
