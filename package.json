@@ -26,6 +26,7 @@
     "test": "jest",
     "test-w": "jest --watch",
     "test2": "jest --watch --runInBand",
+    "test-ps": "jest --runInBand controllers/pubSub/pubSub.test.js",
     "test-auth": "jest --runInBand controllers/sec/auth.test.js",
     "test-users": "jest --runInBand controllers/sec/users.test.js",
     "test-roles": "jest --runInBand controllers/sec/roles.test.js",
