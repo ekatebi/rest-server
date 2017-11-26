@@ -14,6 +14,7 @@ var path = require('path');
 var app = new koa();
 var app2 = new koa();
 const koaBody = require('koa-body');
+// const koaBody = require('koa-bodyparser');
 var jwt = require('koa-jwt');
 const http = require('http');
 const https = require('https');
@@ -21,6 +22,7 @@ const https = require('https');
 import { privateKey } from './constants';
 import * as secRoutes from './routes/security';
 import * as epgRoutes from './routes/epg';
+import * as pubsubRoutes from './routes/pubsub';
 
 const secPort = !process.env['SEC_PORT'] ? 8080 : Number(process.env['SEC_PORT']);
 
@@ -54,6 +56,9 @@ app.use(secRoutes.authRoutes.routes());
 app.use(secRoutes.usersRoutes.routes());
 app.use(secRoutes.rolesRoutes.routes());
 
+app.use(pubsubRoutes.pubRoutes.routes());
+app.use(pubsubRoutes.subRoutes.routes());
+
 // Serve static files
 // app.use(serve(path.join(__dirname, 'public')));
 // app.use(compress());
@@ -62,7 +67,7 @@ if (process.env['HTTPS'] === 'true') {
 
 	app2.use(cors());
 
-	// Logger
+	// RoutesLogger
 	if (process.env['LOGGER'] === 'true') {
 		console.log('https logger on:', process.env['LOGGER']);
 		app2.use(logger());

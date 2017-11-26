@@ -23,7 +23,7 @@ class PubSub {
 		}
 
 	}
-
+	
 	static publish(topic, msg) {
 
 		if (!PubSub.subscribers.topic) {
