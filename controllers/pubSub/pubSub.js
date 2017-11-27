@@ -7,7 +7,7 @@ class PubSub {
 
 	static subscribe(topic, listener, msgsToReturn = 0) {
 
-		if (!PubSub.subscribers.topic) {
+		if (!PubSub.subscribers[topic]) {
 			PubSub.subscribers[topic] = { msgs: [], listeners: [] };
 		}
 
@@ -25,7 +25,7 @@ class PubSub {
 
 	static publish(topic, msg) {
 
-		if (!PubSub.subscribers.topic) {
+		if (!PubSub.subscribers[topic]) {
 			PubSub.subscribers[topic] = { msgs: [], listeners: [] };
 		}
 

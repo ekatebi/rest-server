@@ -37,16 +37,18 @@ module.exports.subscribe = async (ctx) => {
 
     var topic = ctx.params.topic;
 
-		console.log('PubSub.subscribe', topic);
+//		console.log('PubSub.subscribe', topic);
 
     var message = await new Promise((resolve, reject) => {
 			PubSub.subscribe(topic, (msg) => {
-				console.log('PubSub.subscribe', topic, msg);
+//				console.log('PubSub.subscribe', topic, msg);
 				resolve(msg);
 			});
 		});
 
 		ctx.body = { error: false, data: { message } };
+
+//		ctx.body = { error: false, data: { subscribers: PubSub.subscribers } };
 
 	} catch (err) {		
 	  ctx.body = { error: true, data: { message: err.toString() } };
