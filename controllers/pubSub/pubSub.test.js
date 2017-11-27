@@ -5,32 +5,32 @@ import PubSub from './pubSub';
 describe('publisher/subscriber', () => {
 
 	const fooListener1 = (msg) => {
-		console.log('listener 1 for foo topic', msg);
+//		console.log('listener 1 for foo topic', msg);
 		expect(msg).toBe('hello');
 	};
 
 	const fooListener2 = (msg) => {
-		console.log('listener 2 for foo topic', msg);
+//		console.log('listener 2 for foo topic', msg);
 		expect(msg).toBe('hello');
 	};
 
 	const barListener1 = (msg) => {
-		console.log('listener 1 for bar topic', msg);
+//		console.log('listener 1 for bar topic', msg);
 		expect(msg).toBe('world');
 	};
 
 	const barListener2 = (msg) => {
-		console.log('listener 2 for bar topic', msg);
+//		console.log('listener 2 for bar topic', msg);
 		expect(msg).toBe('world');
 	};
 
 	const foo2Listener1 = (msg) => {
-		console.log('listener 1 for foo2 topic', msg);
-		expect(msg).toBe('hello');
+//		console.log('listener 1 for foo2 topic', msg);
+		expect(msg).toBe('hello 2');
 	};
 
 	const foo2Listener2 = (msg) => {
-		console.log('listener 2 for foo2 topic', msg);
+//		console.log('listener 2 for foo2 topic', msg);
 		expect(msg).toBe('hello 2');
 	};
 
